@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import classNames from "classnames"
 import Moment from "react-moment"
 import { Link } from "react-router-dom"
+import App from "../App.css"
+
 
 
 export default function LaunchItem({
@@ -13,19 +15,34 @@ export default function LaunchItem({
     } }) {
 
     return (
-        <div className="card card-body mb-3">
-            <div className="row">
-                <div className="col-md-9">
-                    <h4>Mission: <span className={classNames({
-                        "text-success": launch_success,
-                        "text-danger": !launch_success
-                    })}>{mission_name}</span></h4>
+        <div className="row">
+            <div className="col">
 
+                <div className="card">
+                    <div className="card-body">
 
-                    <p>Date: <Moment format="YYYY-MM-DD HH:mm">{launch_date_local}</Moment></p>
-                </div>
-                <div className="col-md-3">
-                    <Link to={`/launch/${flight_number}`} className="btn btn-primary">Details</Link>
+                        <h5 className="card-title">Rocket</h5>
+                        <hr color="white" />
+
+                        <h4>Mission:
+                            <span style={{ marginLeft: "10px" }}
+                                className={
+                                    classNames({
+                                        "text-success": launch_success,
+                                        "text-danger": !launch_success
+                                    })}>{mission_name}
+                            </span>
+                        </h4>
+
+                        <p>Date: <Moment format="YYYY-MM-DD HH:mm">{launch_date_local}</Moment></p>
+                    </div>
+
+                    <Link to={`/launch/${flight_number}`}>
+                        <button type="button" className="btn btn-primary"
+                            style={{
+                                marginBottom: "20px"
+                            }}>Rocket Details</button>
+                    </Link>
                 </div>
             </div>
         </div>

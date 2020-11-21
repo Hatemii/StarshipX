@@ -16,17 +16,24 @@ class App extends Component {
     super(props);
     this.state = {}
   }
+
+
   render() {
     return (
       <ApolloProvider client={client}>
+        <img src={logo} alt="spacex" style={{ width: "300px", display: "block", margin: "auto", marginTop: "50px" }} />
+
         <Router>
-          <div className="container">
-            {/* SpaceX Logo */}
-            <img src={logo} alt="spacex" style={{ width: "300px", display: "block", margin: "auto", marginTop: "50px" }} />
+          <div className="container" style={{
+            textAlign: "center",
+            alignItems: "center"
+          }}>
 
             <Route exact path="/" component={Launches} />
             <Route exact path="/launch/:flight_number" component={Launch} />
           </div>
+
+
         </Router>
       </ApolloProvider>
     );
