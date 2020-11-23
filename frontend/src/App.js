@@ -1,10 +1,11 @@
 import React, { Component } from "react"
-import logo from "./logo_light.png"
+import logo from "./images/logo_light.png"
 import ApolloClient from "apollo-boost"
 import { ApolloProvider } from "react-apollo"
 import { BrowserRouter as Router, Route } from "react-router-dom"
 import Launches from "./components/Launches"
 import Launch from "./components/Launch"
+import Navbar from "./components/navbar/Navbar"
 
 
 const client = new ApolloClient({
@@ -21,6 +22,7 @@ class App extends Component {
   render() {
     return (
       <ApolloProvider client={client}>
+
         <img src={logo} alt="spacex" style={{ width: "300px", display: "block", margin: "auto", marginTop: "50px" }} />
 
         <Router>

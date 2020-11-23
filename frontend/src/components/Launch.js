@@ -34,7 +34,7 @@ class Launch extends Component {
                     {
                         ({ loading, error, data }) => {
                             if (loading) return <h4>Loading . . .</h4>
-                            if (error) console.log(error);
+                            if (error) return <h4>Error</h4>;
 
                             const {
                                 mission_name,
@@ -47,42 +47,63 @@ class Launch extends Component {
 
                             return (
                                 <div>
-                                    <h1 className="display-4 my-3" >
-                                        <span className="text-dark">Mission:</span>
-                                        {mission_name}</h1>
-                                    <br />
+                                    <h1 className="display-4 my-3">Mission Name:
+                                        <span
+                                            style={{
+                                                marginLeft: "20px",
+                                            }}
+                                        >{mission_name}</span>
+                                    </h1>
 
-                                    <h3 className="mb-3" >Launch Details</h3>
-                                    <ul className="list-group">
-                                        <li className="list-group-item">Flight Number: {flight_number}</li>
-                                        <li className="list-group-item">Launch Year: {launch_year}</li>
-                                        <li className="list-group-item">
-                                            Launch Success: <span className={classNames({
-                                            "text-success": launch_success,
-                                            "text-danger": !launch_success
-                                        })}>{launch_success ? "Yes" : "No"}</span>
-                                        </li>
 
-                                    </ul>
-                                    <br />
-                                    <br />
+                                    <div>
+                                        <div className="child_1" style={{
+                                            width: "50%",
+                                            float: "left",
+                                            padding: "10px"
+                                        }}>
+                                            <h3 className="mb-3">Launch Details</h3>
+                                            <ul className="list-group">
+                                                <li className="list-group-item">Flight Number: {flight_number}</li>
+                                                <li className="list-group-item">Launch Year: {launch_year}</li>
+                                                <li className="list-group-item">
+                                                    Launch Success: <span className={classNames({
+                                                    "text-success": launch_success,
+                                                    "text-danger": !launch_success
+                                                })}>{launch_success ? "Yes" : "No"}</span>
+                                                </li>
+                                            </ul>
+                                        </div>
 
-                                    <h3 className="my-3">Rocket Details</h3>
-                                    <ul className="list-group">
-                                        <li className="list-group-item">Rocket ID: {rocket_id}</li>
-                                        <li className="list-group-item">Rocket Name: {rocket_name}</li>
-                                        <li className="list-group-item">Rocket Type: {rocket_type}</li>
 
-                                    </ul>
 
-                                    <hr />
-                                    <Link to="/" className="btn btn-secondary">Back</Link>
+                                        <div className="child_2" style={{
+                                            width: "50%",
+                                            float: "left",
+                                            padding: "10px"
+
+                                        }}>
+                                            <h3 className="mb-3">Rocket Details</h3>
+                                            <ul className="list-group">
+                                                <li className="list-group-item">Rocket ID: {rocket_id}</li>
+                                                <li className="list-group-item">Rocket Name: {rocket_name}</li>
+                                                <li className="list-group-item">Rocket Type: {rocket_type}</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+
+                                    <Link to="/" className="btn btn-secondary" style={{
+                                        margin: "100px 0px"
+                                    }}>Back</Link>
+
+
                                 </div>
                             );
                         }
                     }
 
-                </Query>
+                </Query >
 
             </Fragment >
         );

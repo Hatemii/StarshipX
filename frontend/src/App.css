@@ -1,3 +1,10 @@
+
+/* scrollbar works only in chrome */
+::-webkit-scrollbar {
+    display: none;
+ }
+
+
 .card {
     margin: auto;
     margin-bottom: 3.5rem;
@@ -10,3 +17,4 @@
   float: left;
   margin: auto;
 }
+

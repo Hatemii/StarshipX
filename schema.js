@@ -70,6 +70,18 @@ const RocketDiameter = new GraphQLObjectType({
 
 
 
+// Ships
+const ShipType = new GraphQLObjectType({
+  name: "ShipType",
+  fields: () => ({
+    ship_id: { type: GraphQLString },
+    ship_name: { type: GraphQLString },
+    ship_type: { type: GraphQLString },
+    year_built: { type: GraphQLInt }
+  })
+})
+
+
 // Root Query
 const RootQuery = new GraphQLObjectType({
   name: "RootQueryType",
@@ -115,9 +127,30 @@ const RootQuery = new GraphQLObjectType({
         return axios.get(`https://api.spacexdata.com/v3/rockets/${args.rocket_id}`)
           .then(res => res.data);
       }
+    },
+
+
+    // get ships
+    ships: {
+      type: new GraphQLList(ShipType),
+      resolve(parent, args) {
+        return axios.get('https://api.spacexdata.com/v3/ships')
+          .then(res => res.data);
+      }
+    },
+
+
+    // get specific ship
+    specific_ship: {
+      type: ShipType,
+      args: {
+        ship_id: { type: GraphQLString }
+      },
+      resolve(parent, args) {
+        return axios.get(`https://api.spacexdata.com/v3/ships/${args.ship_id}`)
+          .then(res => res.data);
+      }
     }
-
-
 
   }
 })

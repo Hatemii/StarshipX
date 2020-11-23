@@ -20,13 +20,14 @@ export class Launches extends Component {
         return (
             <Fragment>
                 <h1 className="display-4 my-3" >Rocket Launches</h1>
+
                 <Mission />
 
                 <Query query={LaunchesQuery}>
                     {
                         ({ loading, error, data }) => {
                             if (loading) return <h4>Loading . . .</h4>
-                            if (error) console.log(error);
+                            if (error) return <h4>Error</h4>;
 
                             return (
                                 <Fragment>
