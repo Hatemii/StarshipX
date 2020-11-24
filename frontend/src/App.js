@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Link, Route } from "react-router-dom"
 import AllLaunches from "./components/Rockets/AllLaunches"
 import LaunchDetails from "./components/Rockets/LaunchDetails"
 import Navbar from "./components/navbar/Navbar"
-
+import space from "./images/space.jpg"
 
 const client = new ApolloClient({
   uri: "http://localhost:5000/graphql"
@@ -22,6 +22,18 @@ class App extends Component {
   render() {
     return (
       <div>
+
+        <header>
+          <img src={space} style={{
+            width: "100%",
+            height: "100%",
+            backgroundPosition: "center",
+            backgroundSize: "cover"
+          }}></img>
+          <h2>This is header</h2>
+        </header>
+
+
 
         <ApolloProvider client={client} >
           <Router>

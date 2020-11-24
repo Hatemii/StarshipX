@@ -37,6 +37,12 @@ class LaunchDetails extends Component {
         }
 
 
+        // details
+        const someDetails = {
+            color: "white",
+            fontWeight: "bold",
+            marginLeft: "5px"
+        }
 
         return (
             <Fragment>
@@ -71,16 +77,18 @@ class LaunchDetails extends Component {
                                         <div className="child_1" style={child_style}>
                                             <h4>Launch Details</h4>
                                             <ul className="list-group">
-                                                <li className="list-group-item">Flight Number: <b style={{ color: "white" }}>{flight_number}</b></li>
-                                                <li className="list-group-item">Launch Year: <b style={{ color: "white" }}>{launch_year}</b></li>
+                                                <li className="list-group-item">Flight Number:  <span style={someDetails}>{flight_number}</span></li>
+                                                <li className="list-group-item">Launch Year: <span style={someDetails}>{launch_year}</span></li>
                                                 <li className="list-group-item">
                                                     Launch Success: <span className={
                                                         classNames({
                                                             "text-success": launch_success,
                                                             "text-danger": !launch_success
                                                         })}>
-                                                        <b style={{ color: "white" }} >{launch_success ? "Yes" : "No"}</b>
-                                                    </span></li>
+                                                        <b style={{ marginLeft: "5px" }}>{
+                                                            launch_success ? "Yes" : "No"
+                                                        }</b></span>
+                                                </li>
                                             </ul>
                                         </div>
 
@@ -89,9 +97,9 @@ class LaunchDetails extends Component {
                                         <div className="child_2" style={child_style}>
                                             <h4>Rocket Details</h4>
                                             <ul className="list-group">
-                                                <li className="list-group-item">Rocket ID: <b style={{ color: "white" }} >{rocket_id}</b></li>
-                                                <li className="list-group-item">Rocket Name: <b style={{ color: "white" }}>{rocket_name}</b></li>
-                                                <li className="list-group-item">Rocket Type: <b style={{ color: "white" }}>{rocket_type}</b></li>
+                                                <li className="list-group-item">Rocket ID: <span style={someDetails}>{rocket_id}</span></li>
+                                                <li className="list-group-item">Rocket Name: <span style={someDetails}>{rocket_name}</span></li>
+                                                <li className="list-group-item">Rocket Type: <span style={someDetails}>{rocket_type}</span></li>
                                             </ul>
                                         </div>
                                     </div>
