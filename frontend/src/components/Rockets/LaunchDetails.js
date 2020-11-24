@@ -58,38 +58,40 @@ class LaunchDetails extends Component {
 
                             return (
                                 <div>
-                                    <h1 className="display-4 my-3">Mission Name:
+                                    <h3 style={{ margin: "40px 0px" }}>Mission Name:
                                         <span
                                             style={{
                                                 marginLeft: "20px",
-                                            }}
-                                        >{mission_name}</span>
-                                    </h1>
+                                            }} >{mission_name}
+                                        </span>
+                                    </h3>
 
 
                                     <div>
                                         <div className="child_1" style={child_style}>
-                                            <h3 className="mb-3">Launch Details</h3>
+                                            <h4>Launch Details</h4>
                                             <ul className="list-group">
-                                                <li className="list-group-item">Flight Number: {flight_number}</li>
-                                                <li className="list-group-item">Launch Year: {launch_year}</li>
+                                                <li className="list-group-item">Flight Number: <b style={{ color: "white" }}>{flight_number}</b></li>
+                                                <li className="list-group-item">Launch Year: <b style={{ color: "white" }}>{launch_year}</b></li>
                                                 <li className="list-group-item">
-                                                    Launch Success: <span className={classNames({
-                                                    "text-success": launch_success,
-                                                    "text-danger": !launch_success
-                                                })}>{launch_success ? "Yes" : "No"}</span>
-                                                </li>
+                                                    Launch Success: <span className={
+                                                        classNames({
+                                                            "text-success": launch_success,
+                                                            "text-danger": !launch_success
+                                                        })}>
+                                                        <b style={{ color: "white" }} >{launch_success ? "Yes" : "No"}</b>
+                                                    </span></li>
                                             </ul>
                                         </div>
 
 
 
                                         <div className="child_2" style={child_style}>
-                                            <h3 className="mb-3">Rocket Details</h3>
+                                            <h4>Rocket Details</h4>
                                             <ul className="list-group">
-                                                <li className="list-group-item">Rocket ID: {rocket_id}</li>
-                                                <li className="list-group-item">Rocket Name: {rocket_name}</li>
-                                                <li className="list-group-item">Rocket Type: {rocket_type}</li>
+                                                <li className="list-group-item">Rocket ID: <b style={{ color: "white" }} >{rocket_id}</b></li>
+                                                <li className="list-group-item">Rocket Name: <b style={{ color: "white" }}>{rocket_name}</b></li>
+                                                <li className="list-group-item">Rocket Type: <b style={{ color: "white" }}>{rocket_type}</b></li>
                                             </ul>
                                         </div>
                                     </div>
