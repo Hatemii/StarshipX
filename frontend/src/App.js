@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import logo from "./images/logo_light.png"
 import ApolloClient from "apollo-boost"
 import { ApolloProvider } from "react-apollo"
-import { BrowserRouter as Router, Route } from "react-router-dom"
+import { BrowserRouter as Router, Link, Route } from "react-router-dom"
 import AllLaunches from "./components/Rockets/AllLaunches"
 import LaunchDetails from "./components/Rockets/LaunchDetails"
 import Navbar from "./components/navbar/Navbar"
@@ -24,10 +24,12 @@ class App extends Component {
       <div>
 
         <ApolloProvider client={client} >
-
-          <img src={logo} alt="spacex" style={{ width: "300px", display: "block", margin: "auto", marginTop: "50px" }} />
-
           <Router>
+
+            <Link to={"/"}>
+              <img src={logo} alt="spacex" style={{ width: "300px", display: "block", margin: "auto", marginTop: "50px" }} />
+            </Link>
+
             <div className="container" style={{
               textAlign: "center",
               alignItems: "center"
