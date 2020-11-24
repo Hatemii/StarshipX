@@ -23,10 +23,20 @@ const SpecificRocketQuery = gql`
     }
 `
 
-class Launch extends Component {
+class LaunchDetails extends Component {
     render() {
         let { flight_number } = this.props.match.params;
         flight_number = parseInt(flight_number);
+
+
+        // childs_1 / child_2 style
+        const child_style = {
+            width: "50%",
+            float: "left",
+            padding: "10px"
+        }
+
+
 
         return (
             <Fragment>
@@ -45,6 +55,7 @@ class Launch extends Component {
                             } = data.specific_launch
 
 
+
                             return (
                                 <div>
                                     <h1 className="display-4 my-3">Mission Name:
@@ -57,11 +68,7 @@ class Launch extends Component {
 
 
                                     <div>
-                                        <div className="child_1" style={{
-                                            width: "50%",
-                                            float: "left",
-                                            padding: "10px"
-                                        }}>
+                                        <div className="child_1" style={child_style}>
                                             <h3 className="mb-3">Launch Details</h3>
                                             <ul className="list-group">
                                                 <li className="list-group-item">Flight Number: {flight_number}</li>
@@ -77,12 +84,7 @@ class Launch extends Component {
 
 
 
-                                        <div className="child_2" style={{
-                                            width: "50%",
-                                            float: "left",
-                                            padding: "10px"
-
-                                        }}>
+                                        <div className="child_2" style={child_style}>
                                             <h3 className="mb-3">Rocket Details</h3>
                                             <ul className="list-group">
                                                 <li className="list-group-item">Rocket ID: {rocket_id}</li>
@@ -110,4 +112,4 @@ class Launch extends Component {
     }
 }
 
-export default Launch;
+export default LaunchDetails;

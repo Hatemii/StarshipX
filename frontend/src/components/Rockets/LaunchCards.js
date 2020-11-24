@@ -2,11 +2,10 @@ import React, { Component } from 'react'
 import classNames from "classnames"
 import Moment from "react-moment"
 import { Link } from "react-router-dom"
-import App from "../App.css"
 
 
 
-export default function LaunchItem({
+export default function LaunchCards({
     launch: {
         flight_number,
         mission_name,
@@ -14,11 +13,25 @@ export default function LaunchItem({
         launch_success
     } }) {
 
+
+    const style_row = {
+        float: "left",
+        margin: "auto"
+    }
+
+    const style_cards = {
+        margin: "auto",
+        marginBottom: "3.5rem",
+        width: "20rem",
+        height: "18rem",
+        color: "white"
+    }
+
     return (
-        <div className="row">
+        <div className="row" style={style_row}>
             <div className="col">
 
-                <div className="card">
+                <div className="card" style={style_cards}>
                     <div className="card-body">
 
                         <h5 className="card-title">Rocket</h5>

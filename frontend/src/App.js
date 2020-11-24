@@ -3,8 +3,8 @@ import logo from "./images/logo_light.png"
 import ApolloClient from "apollo-boost"
 import { ApolloProvider } from "react-apollo"
 import { BrowserRouter as Router, Route } from "react-router-dom"
-import Launches from "./components/Launches"
-import Launch from "./components/Launch"
+import AllLaunches from "./components/Rockets/AllLaunches"
+import LaunchDetails from "./components/Rockets/LaunchDetails"
 import Navbar from "./components/navbar/Navbar"
 
 
@@ -21,23 +21,27 @@ class App extends Component {
 
   render() {
     return (
-      <ApolloProvider client={client}>
+      <div>
 
-        <img src={logo} alt="spacex" style={{ width: "300px", display: "block", margin: "auto", marginTop: "50px" }} />
+        <ApolloProvider client={client} >
 
-        <Router>
-          <div className="container" style={{
-            textAlign: "center",
-            alignItems: "center"
-          }}>
+          <img src={logo} alt="spacex" style={{ width: "300px", display: "block", margin: "auto", marginTop: "50px" }} />
 
-            <Route exact path="/" component={Launches} />
-            <Route exact path="/launch/:flight_number" component={Launch} />
-          </div>
+          <Router>
+            <div className="container" style={{
+              textAlign: "center",
+              alignItems: "center"
+            }}>
+
+              <Route exact path="/" component={AllLaunches} />
+              <Route exact path="/launch/:flight_number" component={LaunchDetails} />
+            </div>
 
 
-        </Router>
-      </ApolloProvider>
+          </Router>
+        </ApolloProvider >
+
+      </div>
     );
   }
 }
