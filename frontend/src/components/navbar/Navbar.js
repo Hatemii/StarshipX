@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Navbar.css"
 import white from "../../images/white.png"
+import { BrowserRouter as Router, Link } from "react-router-dom"
 
 class Navbar extends Component {
     constructor(props) {
@@ -9,15 +10,19 @@ class Navbar extends Component {
     }
     render() {
         return (
-            <div className="nav">
-                <img src={white} alt="spacex" ></img>
+            <Router>
+                <div className="nav">
 
-                <ul>
-                    <li><a href="#home">HOME</a></li>
-                    <li><a href="#rockets">ROCKETS</a></li>
-                    <li><a href="#ships">SHIPS</a></li>
-                </ul>
-            </div>
+                    <a href="/"><img src={white} alt="spacex" ></img></a>
+
+                    <ul>
+                        <li><a href="/">HOME</a></li>
+                        <li><a href="/rockets">ROCKETS</a></li>
+                        <li><a href="/ships">SHIPS</a></li>
+                    </ul>
+
+                </div>
+            </Router>
         );
     }
 }

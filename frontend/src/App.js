@@ -3,10 +3,11 @@ import "./App.css"
 import logo from "./images/logo.png"
 import ApolloClient from "apollo-boost"
 import { ApolloProvider } from "react-apollo"
-import { BrowserRouter as Router, Link, Route } from "react-router-dom"
+import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom"
 import AllLaunches from "./components/Rockets/AllLaunches"
 import LaunchDetails from "./components/Rockets/LaunchDetails"
 import Navbar from "./components/navbar/Navbar"
+import Ship from "./components/Ships/Ship"
 
 const client = new ApolloClient({
   uri: "http://localhost:5000/graphql"
@@ -23,27 +24,28 @@ class App extends Component {
     return (
       <div>
 
-        <header>
-          <Navbar />
-        </header>
+        <header> <Navbar /> </header>
+
+        <div>
+          <ApolloProvider client={client} >
+            <Router>
+
+              <div className="container" style={{
+                textAlign: "center",
+                margin: "0 auto"
+              }}>
 
 
-        <ApolloProvider client={client} >
-          <Router>
+                <Switch>
+                  <Route exact path="/" component={AllLaunches} />
+                  <Route path="/launch/:flight_number" component={LaunchDetails} />
+                  <Route path="/ships" component={Ship} />
+                </Switch>
 
-            <div className="container" style={{
-              textAlign: "center",
-              margin: "0 auto"
-            }}>
-
-
-              <Route exact path="/" component={AllLaunches} />
-              <Route exact path="/launch/:flight_number" component={LaunchDetails} />
-            </div>
-
-          </Router>
-        </ApolloProvider >
-
+              </div>
+            </Router>
+          </ApolloProvider >
+        </div>
       </div>
     );
   }
