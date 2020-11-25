@@ -18,7 +18,7 @@ class Navbar extends Component {
                     <ul>
                         <li><a href="/">HOME</a></li>
                         <li><a href="/rockets">ROCKETS</a></li>
-                        <li><a href="/ships">SHIPS</a></li>
+                        <li><a href="/ship">SHIPS</a></li>
                     </ul>
 
                 </div>

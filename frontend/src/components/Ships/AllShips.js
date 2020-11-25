@@ -19,7 +19,7 @@ const ShipsQuery = gql`
 `
 
 
-class AllShip extends Component {
+class AllShips extends Component {
     constructor(props) {
         super(props);
         this.state = {}
@@ -52,10 +52,4 @@ class AllShip extends Component {
     }
 }
 
-{/* <Link to={"/"}>
-    <button type="button" className="btn btn-primary"
-        style={{ marginTop: "50px", marginBottom: "200px" }}>HOME</button>
-</Link> */}
-
-
-export default AllShip;
+export default AllShips;

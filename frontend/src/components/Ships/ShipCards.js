@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import classNames from "classnames"
 import Moment from "react-moment"
 import { Link } from "react-router-dom"
 
@@ -50,13 +49,13 @@ export default function ShipCards({
                         } > {current_active}</span> </p>
 
                     </div>
-
                     <Link to={`/ship/${ship_id}`}>
                         <button type="button" className="btn btn-primary"
                             style={{
-                                marginTop: "50px", marginBottom: "20px"
+                                marginBottom: "20px"
                             }}>Ship Details</button>
                     </Link>
+
                 </div>
             </div>
         </div>
