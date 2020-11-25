@@ -37,10 +37,11 @@ class App extends Component {
 
 
               <Switch>
-                <Route exact path="/" component={AllLaunches} />
-                <Route path="/launch/:flight_number" component={LaunchDetails} />
+                <Route exact path="/" />
+                <Route exact path="/rockets" component={AllLaunches} />
+                <Route path="/rockets/:flight_number" component={LaunchDetails} />
                 <Route exact path="/ship" component={AllShips} />
-                <Route path="/ship/:ship_id" render={(props) => <ShipDetails {...props} />} />
+                <Route path="/ship/:ship_id" component={ShipDetails} />
               </Switch>
 
             </div>

@@ -53,7 +53,7 @@ export default function LaunchCards({
                         <p>Date: <Moment format="YYYY-MM-DD HH:mm">{launch_date_local}</Moment></p>
                     </div>
 
-                    <Link to={`/launch/${flight_number}`}>
+                    <Link to={`/rockets/${flight_number}`}>
                         <button type="button" className="btn btn-primary"
                             style={{
                                 marginBottom: "20px"
