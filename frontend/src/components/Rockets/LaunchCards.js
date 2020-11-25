@@ -28,6 +28,9 @@ export default function LaunchCards({
     }
 
     return (
+
+
+
         <div className="row" style={style_row}>
             <div className="col">
 
@@ -59,5 +62,6 @@ export default function LaunchCards({
                 </div>
             </div>
         </div>
+
     )
 }

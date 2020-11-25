@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import "./Navbar.css"
+import white from "../../images/white.png"
 
 class Navbar extends Component {
     constructor(props) {
@@ -7,19 +9,15 @@ class Navbar extends Component {
     }
     render() {
         return (
-            <nav class="navbar navbar-dark bg-dark">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Rockets</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Ships</a>
-                    </li>
+            <div className="nav">
+                <img src={white} alt="spacex" ></img>
+
+                <ul>
+                    <li><a href="#home">HOME</a></li>
+                    <li><a href="#rockets">ROCKETS</a></li>
+                    <li><a href="#ships">SHIPS</a></li>
                 </ul>
-            </nav>
+            </div>
         );
     }
 }
