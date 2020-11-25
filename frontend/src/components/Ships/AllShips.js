@@ -26,7 +26,7 @@ class AllShip extends Component {
     render() {
         return (
             <Fragment>
-                <h3>All Ship Launches</h3>
+                <h3 style={{ marginBottom: "50px" }}>All Ship Launches</h3>
 
                 <Query query={ShipsQuery}>
                     {

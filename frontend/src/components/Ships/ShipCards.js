@@ -4,7 +4,6 @@ import Moment from "react-moment"
 import { Link } from "react-router-dom"
 
 
-
 export default function ShipCards({
     ship: {
         ship_id,
@@ -13,6 +12,8 @@ export default function ShipCards({
         year_built,
         active
     } }) {
+
+    let current_active = active.toString();
 
 
     const style_row = {
@@ -28,6 +29,8 @@ export default function ShipCards({
         color: "white"
     }
 
+
+
     return (
 
         <div className="row" style={style_row}>
@@ -39,8 +42,12 @@ export default function ShipCards({
                         <h5 className="card-title">Ship</h5>
                         <hr color="white" />
 
-                        <h5>Name: <span style={{ marginLeft: "5px" }}>{ship_name}</span></h5>
-                        <p>Type: {ship_type}</p>
+                        <h5>Name: <span style={{ fontSize: "20px", fontWeight: "bold", marginLeft: "5px" }}>{ship_name}</span></h5>
+                        <p>Type: <span style={{ fontWeight: "bold" }}>{ship_type}</span></p>
+
+                        <p>Active: <span style={
+                            current_active === "true" ? { color: "rgb(0, 199, 79)", fontWeight: "bold" } : { color: "rgb(220, 10, 10)", fontWeight: "bold" }
+                        } > {current_active}</span> </p>
 
                     </div>
 
