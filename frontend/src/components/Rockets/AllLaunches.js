@@ -19,7 +19,7 @@ export class AllLaunches extends Component {
     render() {
         return (
             <Fragment>
-                <h1 className="display-4 my-3" >All Launches</h1>
+                <h3>All Rocket Launches</h3>
 
                 <Mission />
 
