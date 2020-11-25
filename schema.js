@@ -72,12 +72,13 @@ const RocketDiameter = new GraphQLObjectType({
 
 // Ships
 const ShipType = new GraphQLObjectType({
-  name: "ShipType",
+  name: "Ships",
   fields: () => ({
     ship_id: { type: GraphQLString },
     ship_name: { type: GraphQLString },
     ship_type: { type: GraphQLString },
-    year_built: { type: GraphQLInt }
+    year_built: { type: GraphQLInt },
+    active: { type: GraphQLBoolean }
   })
 })
 

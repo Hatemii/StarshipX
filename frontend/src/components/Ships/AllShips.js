@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react"
 import { Link } from "react-router-dom"
 import gql from "graphql-tag"
 import { Query } from "react-apollo"
+import ShipCards from "./ShipCards"
 
 
 const ShipsQuery = gql`
@@ -11,6 +12,7 @@ const ShipsQuery = gql`
             ship_name
             ship_type
             year_built
+            active
         }
     }
 `
@@ -35,7 +37,7 @@ class AllShip extends Component {
                             return (
                                 <Fragment>
                                     {data.ships.map(ship => (
-                                        <h3>Hihiih</h3>
+                                        <ShipCards key={ship.ship_id} ship={ship} />
                                     ))}
                                 </Fragment>
                             )
