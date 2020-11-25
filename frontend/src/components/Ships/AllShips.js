@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import gql from "graphql-tag"
 import { Query } from "react-apollo"
 import ShipCards from "./ShipCards"
+import ActiveHandle from "./ActiveHandle"
 
 
 const ShipsQuery = gql`
@@ -27,6 +28,7 @@ class AllShip extends Component {
         return (
             <Fragment>
                 <h3 style={{ marginBottom: "50px" }}>All Ship Launches</h3>
+                <ActiveHandle />
 
                 <Query query={ShipsQuery}>
                     {
