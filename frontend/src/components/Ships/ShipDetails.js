@@ -8,6 +8,7 @@ const SpecificShipQuery = gql`
         specific_ship(ship_id: $ship_id) {
             ship_id
             ship_name
+            home_port
             ship_type
             year_built
             active
@@ -47,8 +48,10 @@ class ShipDetails extends Component {
                             const {
                                 ship_id,
                                 ship_name,
+                                home_port,
                                 ship_type,
                                 year_built,
+                                latitude,
                                 active
                             } = data.specific_ship
 
@@ -67,8 +70,11 @@ class ShipDetails extends Component {
                                             <h4>Ship Details</h4>
                                             <ul className="list-group">
                                                 <li className="list-group-item">Ship Id:  <span style={someDetails}>{ship_id}</span></li>
+                                                <li className="list-group-item">Home Port:  <span style={someDetails}>{home_port}</span></li>
                                                 <li className="list-group-item">Ship Type: <span style={someDetails}>{ship_type}</span></li>
                                                 <li className="list-group-item">Year Of Built: <span style={someDetails}>{current_year}</span></li>
+                                                <li className="list-group-item">Latitude: <span style={someDetails}>{latitude}</span></li>
+
 
                                                 <li className="list-group-item">Ship Active: <span style={
                                                     current_active === "true" ?

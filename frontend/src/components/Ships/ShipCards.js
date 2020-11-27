@@ -7,6 +7,7 @@ export default function ShipCards({
     ship: {
         ship_id,
         ship_name,
+        home_port,
         ship_type,
         year_built,
         active

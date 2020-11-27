@@ -38,7 +38,7 @@ class App extends Component {
 
               <Switch>
                 <Route exact path="/" />
-                <Route exact path="/rockets" component={AllLaunches} />
+                <Route path="/rockets" exact component={AllLaunches} />
                 <Route path="/rockets/:flight_number" component={LaunchDetails} />
                 <Route exact path="/ship" component={AllShips} />
                 <Route path="/ship/:ship_id" component={ShipDetails} />

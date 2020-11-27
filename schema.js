@@ -1,4 +1,4 @@
-const axios = require("axios")
+const axios = require("axios");
 
 
 const {
@@ -7,6 +7,7 @@ const {
   GraphQLString,
   GraphQLBoolean,
   GraphQLList,
+  GraphQLFloat,
   GraphQLSchema,
 } = require("graphql");
 
@@ -25,15 +26,18 @@ const LaunchType = new GraphQLObjectType({
 });
 
 
+
 // Rocket Type
 const RocketType = new GraphQLObjectType({
   name: "Rocket",
   fields: () => ({
     rocket_id: { type: GraphQLString },
     rocket_name: { type: GraphQLString },
-    rocket_type: { type: GraphQLString }
+    rocket_type: { type: GraphQLString },
   })
 });
+
+
 
 // Specific Rocket
 const SpecificRocketType = new GraphQLObjectType({
@@ -69,24 +73,80 @@ const RocketDiameter = new GraphQLObjectType({
 });
 
 
-
 // Ships
 const ShipType = new GraphQLObjectType({
   name: "Ships",
   fields: () => ({
     ship_id: { type: GraphQLString },
     ship_name: { type: GraphQLString },
+    home_port: { type: GraphQLString },
     ship_type: { type: GraphQLString },
     year_built: { type: GraphQLInt },
+    position: { type: ShipPositionType },
     active: { type: GraphQLBoolean }
   })
 })
 
+// Ship positions
+const ShipPositionType = new GraphQLObjectType({
+  name: "ShipPositionType",
+  fields: () => ({
+    latitude: { type: GraphQLFloat },
+    longitude: { type: GraphQLFloat }
+  })
+});
 
-// Root Query
+
+// Dragons
+const DragonsType = new GraphQLObjectType({
+  name: "Dragons",
+  fields: () => ({
+    id: { type: GraphQLString },
+    name: { type: GraphQLString },
+    type: { type: GraphQLString },
+    active: { type: GraphQLBoolean },
+    first_flight: { type: GraphQLString },
+    orbit_duration_yr: { type: GraphQLInt },
+    heat_shield: { type: HeatShieldType },
+    diameter: { type: DragonDiameter }
+  })
+})
+
+// Dragon HeatShield
+const HeatShieldType = new GraphQLObjectType({
+  name: "HeatShieldType",
+  fields: () => ({
+    material: { type: GraphQLString },
+    size_meters: { type: GraphQLFloat }
+  })
+})
+
+// Dragon Diameter
+const DragonDiameter = new GraphQLObjectType({
+  name: "DragonDiameter",
+  fields: () => ({
+    meters: { type: GraphQLFloat },
+    feet: { type: GraphQLInt }
+  })
+})
+
+
+// ******************* ROOT QUERY *******************  //
+
+
 const RootQuery = new GraphQLObjectType({
   name: "RootQueryType",
   fields: {
+
+
+    dragons: {
+      type: new GraphQLList(DragonsType),
+      resolve(parent, args) {
+        return axios.get("https://api.spacexdata.com/v3/dragons")
+          .then(res => res.data)
+      }
+    },
+
 
     launches: {
       type: new GraphQLList(LaunchType),
@@ -95,6 +155,8 @@ const RootQuery = new GraphQLObjectType({
           .then(res => res.data);
       }
     },
+
+
     // this will get single launch by flight_number
     // for example in graphql -->> {specific_launch(flight_number:2){.....}}
     specific_launch: {
@@ -151,7 +213,10 @@ const RootQuery = new GraphQLObjectType({
         return axios.get(`https://api.spacexdata.com/v3/ships/${args.ship_id}`)
           .then(res => res.data);
       }
-    }
+    },
+
+
+
 
   }
 })

@@ -105,7 +105,7 @@ class LaunchDetails extends Component {
                                     </div>
 
 
-                                    <Link to="/" className="btn btn-secondary" style={{
+                                    <Link to="/rockets" className="btn btn-secondary" style={{
                                         margin: "100px 0px"
                                     }}>Back</Link>
 
