@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import classNames from "classnames"
 import Moment from "react-moment"
 import { Link } from "react-router-dom"
-
+import "./RocketStyle.css"
 
 
 export default function LaunchCards({
@@ -10,55 +10,57 @@ export default function LaunchCards({
         flight_number,
         mission_name,
         launch_date_local,
-        launch_success
+        launch_success,
+        rocket: { rocket_id, rocket_name, rocket_type }
     } }) {
-
-
-    const style_row = {
-        float: "left",
-        margin: "auto"
-    }
-
-    const style_cards = {
-        margin: "auto",
-        marginBottom: "3.5rem",
-        width: "20rem",
-        height: "18rem",
-        color: "white"
-    }
 
     return (
 
-
-
-        <div className="row" style={style_row}>
+        <div className="row">
             <div className="col">
 
-                <div className="card" style={style_cards}>
+                <div className="card">
                     <div className="card-body">
 
-                        <h5 className="card-title">Rocket</h5>
+                        <h5 className="card-title" style={{ fontSize: "20px", fontWeight: "bold" }}>{rocket_name}</h5>
                         <hr color="white" />
 
-                        <h4>Mission:
-                            <span style={{ marginLeft: "10px" }}
-                                className={
+
+                        <table className="table table-borderless">
+
+                            <tr>
+                                <td>Flight Number</td>
+                                <td className="td_2">{flight_number}</td>
+                            </tr>
+
+
+                            <tr>
+                                <td>Mission</td>
+                                <td className="td_2"><span className={
                                     classNames({
                                         "text-success": launch_success,
                                         "text-danger": !launch_success
                                     })}>{mission_name}
-                            </span>
-                        </h4>
+                                </span></td>
+                            </tr>
 
-                        <p>Date: <Moment format="YYYY-MM-DD HH:mm">{launch_date_local}</Moment></p>
+
+                            <tr>
+                                <td>Date</td>
+                                <td className="td_2"><Moment format="YYYY-MM-DD HH:mm">{launch_date_local}</Moment> </td>
+                            </tr>
+                        </table>
+
+
+                        <Link to={`/rockets/${flight_number}`}>
+                            <button type="button" className="btn btn-primary"
+                                style={{
+                                    fontWeight: "bold",
+                                    marginTop: "10px"
+                                }}>Rocket Details</button>
+                        </Link>
+
                     </div>
-
-                    <Link to={`/rockets/${flight_number}`}>
-                        <button type="button" className="btn btn-primary"
-                            style={{
-                                marginBottom: "20px"
-                            }}>Rocket Details</button>
-                    </Link>
                 </div>
             </div>
         </div>

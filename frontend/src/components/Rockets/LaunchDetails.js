@@ -3,7 +3,6 @@ import gql from "graphql-tag"
 import { Query } from "react-apollo"
 import { Link } from "react-router-dom"
 import classNames from "classnames"
-import Missions from "./Missions"
 
 // specific_launch <<<--- user same query name as you used in schema.js
 const SpecificRocketQuery = gql`
@@ -17,7 +16,7 @@ const SpecificRocketQuery = gql`
             rocket {
                 rocket_id
                 rocket_name
-                rocket_type
+                rocket_type,
             }
         }
     }
@@ -36,12 +35,10 @@ class LaunchDetails extends Component {
             padding: "10px"
         }
 
-
-        // details
-        const someDetails = {
-            color: "white",
-            fontWeight: "bold",
-            marginLeft: "5px"
+        const child_style2 = {
+            float: "right",
+            width: "50%",
+            padding: "10px"
         }
 
         return (
@@ -57,7 +54,7 @@ class LaunchDetails extends Component {
                                 flight_number,
                                 launch_year,
                                 launch_success,
-                                rocket: { rocket_id, rocket_name, rocket_type }
+                                rocket: { rocket_id, rocket_name, rocket_type },
                             } = data.specific_launch
 
 
@@ -76,39 +73,61 @@ class LaunchDetails extends Component {
                                     <div>
                                         <div className="child_1" style={child_style}>
                                             <h4>Launch Details</h4>
-                                            <ul className="list-group">
-                                                <li className="list-group-item">Flight Number:  <span style={someDetails}>{flight_number}</span></li>
-                                                <li className="list-group-item">Launch Year: <span style={someDetails}>{launch_year}</span></li>
-                                                <li className="list-group-item">
-                                                    Launch Success: <span className={
+
+                                            <table className="table table-borderless">
+                                                <tr>
+                                                    <td>Flight Number</td>
+                                                    <td className="td">{flight_number}</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>Launch Year</td>
+                                                    <td className="td">{launch_year}</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>Launch Success</td>
+                                                    <td className="td"> <span className={
                                                         classNames({
                                                             "text-success": launch_success,
                                                             "text-danger": !launch_success
                                                         })}>
                                                         <b style={{ marginLeft: "5px" }}>{
                                                             launch_success ? "Yes" : "No"
-                                                        }</b></span>
-                                                </li>
-                                            </ul>
+                                                        }</b></span> </td>
+                                                </tr>
+                                            </table>
+
                                         </div>
 
 
 
-                                        <div className="child_2" style={child_style}>
+                                        <div className="child_2" style={child_style2}>
                                             <h4>Rocket Details</h4>
-                                            <ul className="list-group">
-                                                <li className="list-group-item">Rocket ID: <span style={someDetails}>{rocket_id}</span></li>
-                                                <li className="list-group-item">Rocket Name: <span style={someDetails}>{rocket_name}</span></li>
-                                                <li className="list-group-item">Rocket Type: <span style={someDetails}>{rocket_type}</span></li>
-                                            </ul>
+
+                                            <table className="table table-borderless">
+                                                <tr>
+                                                    <td>Rocket Id</td>
+                                                    <td className="td">{rocket_id}</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>Rocket Name</td>
+                                                    <td className="td">{rocket_name}</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>Rocket Type</td>
+                                                    <td className="td"> {rocket_type}</td>
+                                                </tr>
+                                            </table>
+
                                         </div>
                                     </div>
 
-
                                     <Link to="/rockets" className="btn btn-secondary" style={{
-                                        margin: "100px 0px"
+                                        margin: "100px 0px", fontWeight: "bold"
                                     }}>Back</Link>
-
 
                                 </div>
                             );

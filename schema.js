@@ -21,7 +21,7 @@ const LaunchType = new GraphQLObjectType({
     launch_year: { type: GraphQLString },
     launch_date_local: { type: GraphQLString },
     launch_success: { type: GraphQLBoolean },
-    rocket: { type: RocketType },
+    rocket: { type: RocketType }
   })
 });
 
@@ -34,6 +34,9 @@ const RocketType = new GraphQLObjectType({
     rocket_id: { type: GraphQLString },
     rocket_name: { type: GraphQLString },
     rocket_type: { type: GraphQLString },
+    country: { type: GraphQLString },
+    company: { type: GraphQLString },
+    height: { type: RocketHeight }
   })
 });
 
@@ -48,9 +51,7 @@ const SpecificRocketType = new GraphQLObjectType({
     rocket_type: { type: GraphQLString },
     country: { type: GraphQLString },
     company: { type: GraphQLString },
-    height: { type: RocketHeight },
-    diameter: { type: RocketDiameter }
-
+    height: { type: RocketHeight }
   })
 });
 
@@ -82,19 +83,10 @@ const ShipType = new GraphQLObjectType({
     home_port: { type: GraphQLString },
     ship_type: { type: GraphQLString },
     year_built: { type: GraphQLInt },
-    position: { type: ShipPositionType },
     active: { type: GraphQLBoolean }
   })
 })
 
-// Ship positions
-const ShipPositionType = new GraphQLObjectType({
-  name: "ShipPositionType",
-  fields: () => ({
-    latitude: { type: GraphQLFloat },
-    longitude: { type: GraphQLFloat }
-  })
-});
 
 
 // Dragons

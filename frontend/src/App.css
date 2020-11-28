@@ -12,3 +12,7 @@ header img{
     width: 300px; 
     margin-top: 20px;
 }
+
+body {
+    font-family: D-DIN-Regular, Arial, Verdana, sans-serif;
+}

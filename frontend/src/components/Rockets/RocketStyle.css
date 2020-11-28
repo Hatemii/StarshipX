@@ -1,0 +1,23 @@
+.row {
+    float: left;
+    margin:auto;
+}
+
+.card {
+    margin: auto;
+    margin-bottom: 3.5rem;
+    width: 21rem;
+    height: 20rem;
+    color: white;
+}
+
+
+.table-borderless td_2{
+    border-bottom: px solid rgb(59, 59, 59);
+}
+
+.td_2 {
+    text-align: right;
+    font-weight: bold;
+    color: white;
+}

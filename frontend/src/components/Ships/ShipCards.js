@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Moment from "react-moment"
 import { Link } from "react-router-dom"
-
+import "./ShipStyle.css"
 
 export default function ShipCards({
     ship: {
@@ -15,51 +15,49 @@ export default function ShipCards({
 
     let current_active = active.toString();
 
-
-    const style_row = {
-        float: "left",
-        margin: "auto"
-    }
-
-    const style_cards = {
-        margin: "auto",
-        marginBottom: "3.5rem",
-        width: "20rem",
-        height: "18rem",
-        color: "white"
-    }
-
-
-
     return (
 
-        <div className="row" style={style_row}>
+        <div className="row">
             <div className="col">
 
-                <div className="card" style={style_cards}>
+                <div className="card">
                     <div className="card-body">
 
-                        <h5 className="card-title">Ship</h5>
+                        <h6 className="card-title" style={{ fontSize: "20px", fontWeight: "bold" }}>{ship_name}</h6>
                         <hr color="white" />
 
-                        <h5>Name: <span style={{ fontSize: "20px", fontWeight: "bold", marginLeft: "5px" }}>{ship_name}</span></h5>
-                        <p>Type: <span style={{ fontWeight: "bold" }}>{ship_type}</span></p>
+                        <table className="table table-borderless">
+                            <tr>
+                                <td>Ship Id</td>
+                                <td className="td">{ship_id}</td>
+                            </tr>
 
-                        <p>Active: <span style={
-                            current_active === "true" ? { color: "rgb(0, 199, 79)", fontWeight: "bold" } : { color: "rgb(220, 10, 10)", fontWeight: "bold" }
-                        } > {current_active}</span> </p>
+                            <tr>
+                                <td>Ship Type</td>
+                                <td className="td" style={{ color: "white", fontWeight: "bold" }}>{ship_type}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Active</td>
+                                <td className="td"><span style={
+                                    current_active === "true" ? { color: "rgb(0, 199, 79)", fontWeight: "bold" } : { color: "rgb(220, 10, 10)", fontWeight: "bold" }
+                                } > {current_active}</span> </td>
+                            </tr>
+                        </table>
+
+
+                        <Link to={`/ship/${ship_id}`}>
+                            <button type="button " className="btn btn-primary"
+                                style={{
+                                    fontWeight: "bold",
+                                    marginTop: "10px"
+                                }}>Ship Details</button>
+                        </Link>
 
                     </div>
-                    <Link to={`/ship/${ship_id}`}>
-                        <button type="button" className="btn btn-primary"
-                            style={{
-                                marginBottom: "20px"
-                            }}>Ship Details</button>
-                    </Link>
-
                 </div>
             </div>
-        </div>
+        </div >
 
     )
 }

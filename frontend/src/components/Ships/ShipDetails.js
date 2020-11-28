@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react"
 import gql from "graphql-tag"
 import { Query } from "react-apollo"
 import { Link } from "react-router-dom"
+import "./ShipStyle.css"
 
 const SpecificShipQuery = gql`
     query SpecificShipQuery($ship_id: String!) {
@@ -18,24 +19,8 @@ const SpecificShipQuery = gql`
 
 class ShipDetails extends Component {
     render() {
+
         let { ship_id } = this.props.match.params
-
-
-        // childs_1 / child_2 style
-        const child_style = {
-            width: "50%",
-            margin: "auto",
-            padding: "10px",
-        }
-
-
-        // details
-        const someDetails = {
-            color: "white",
-            fontWeight: "bold",
-            marginLeft: "5px"
-        }
-
 
         return (
             <Fragment>
@@ -51,7 +36,6 @@ class ShipDetails extends Component {
                                 home_port,
                                 ship_type,
                                 year_built,
-                                latitude,
                                 active
                             } = data.specific_ship
 
@@ -65,32 +49,44 @@ class ShipDetails extends Component {
                                     </h3>
 
 
-                                    <div>
-                                        <div className="child_1" style={child_style}>
-                                            <h4>Ship Details</h4>
-                                            <ul className="list-group">
-                                                <li className="list-group-item">Ship Id:  <span style={someDetails}>{ship_id}</span></li>
-                                                <li className="list-group-item">Home Port:  <span style={someDetails}>{home_port}</span></li>
-                                                <li className="list-group-item">Ship Type: <span style={someDetails}>{ship_type}</span></li>
-                                                <li className="list-group-item">Year Of Built: <span style={someDetails}>{current_year}</span></li>
-                                                <li className="list-group-item">Latitude: <span style={someDetails}>{latitude}</span></li>
+                                    <div className="child_1">
+                                        <h4>Overview</h4>
 
+                                        <table className="table table-borderless">
+                                            <tr>
+                                                <td>Ship Id</td>
+                                                <td className="td">{ship_id}</td>
+                                            </tr>
 
-                                                <li className="list-group-item">Ship Active: <span style={
+                                            <tr>
+                                                <td>Home Port</td>
+                                                <td className="td">{home_port}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Ship Type</td>
+                                                <td className="td">{ship_type}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Year Of Built</td>
+                                                <td className="td">{current_year}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Active</td>
+                                                <td className="td"><span style={
                                                     current_active === "true" ?
                                                         { color: "rgb(0, 199, 79)", fontWeight: "bold" } : { color: "rgb(220, 10, 10)", fontWeight: "bold" }
-                                                } > {current_active}</span></li>
+                                                } > {current_active}</span></td>
+                                            </tr>
 
-                                            </ul>
-                                        </div>
-
+                                        </table>
                                     </div>
 
-
                                     <Link to="/ship" className="btn btn-secondary" style={{
-                                        margin: "100px 0px"
+                                        margin: "100px 0px", fontWeight: "bold"
                                     }}>Back</Link>
-
 
                                 </div>
                             );
@@ -98,8 +94,8 @@ class ShipDetails extends Component {
                     }
 
                 </Query >
-
             </Fragment >
+
         );
     }
 }
