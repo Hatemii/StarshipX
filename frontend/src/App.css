@@ -1,18 +1,3 @@
-header{
-    background-image:url("./images/lastSpace.jpg");
-    background-repeat: no-repeat;
-    background-position:center;
-    background-size: cover;
-    width:100%;
-    height: 100vh;
-    margin-bottom: 20px;
-}
-
-header img{
-    width: 300px; 
-    margin-top: 20px;
-}
-
 body {
     font-family: D-DIN-Regular, Arial, Verdana, sans-serif;
 }

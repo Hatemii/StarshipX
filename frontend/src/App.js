@@ -6,9 +6,10 @@ import { ApolloProvider } from "react-apollo"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import AllLaunches from "./components/Rockets/AllLaunches"
 import LaunchDetails from "./components/Rockets/LaunchDetails"
-import Navbar from "./components/navbar/Navbar"
+import Navbar from "./components/Header/Navbar"
 import AllShips from "./components/Ships/AllShips"
 import ShipDetails from "./components/Ships/ShipDetails"
+import Home from "./components/Home/Home"
 
 const client = new ApolloClient({
   uri: "http://localhost:5000/graphql"
@@ -25,14 +26,14 @@ class App extends Component {
     return (
       <div>
 
-        <header><Navbar /></header>
+        <Navbar />
 
         <ApolloProvider client={client} >
 
           <Router>
             <Switch>
 
-              <Route exact path="/" />
+              <Route exact path="/" component={Home} />
               <Route path="/rockets" exact component={AllLaunches} />
               <Route path="/rockets/:flight_number" component={LaunchDetails} />
               <Route exact path="/ship" component={AllShips} />
