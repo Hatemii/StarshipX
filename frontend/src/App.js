@@ -10,6 +10,7 @@ import Navbar from "./components/Header/Navbar"
 import AllShips from "./components/Ships/AllShips"
 import ShipDetails from "./components/Ships/ShipDetails"
 import Home from "./components/Home/Home"
+import Footer from "./components/Footer/Footer"
 
 const client = new ApolloClient({
   uri: "http://localhost:5000/graphql"
@@ -44,6 +45,8 @@ class App extends Component {
 
         </ApolloProvider >
 
+
+        <Footer />
       </div >
     );
   }
