@@ -46,8 +46,8 @@ class ShipDetails extends Component {
 
                                 return (
                                     <div>
-                                        <h3 style={{ margin: "40px 0px" }}>Ship Name:
-                                        <span style={{ marginLeft: "20px" }}>{ship_name}</span>
+                                        <h3 style={{ margin: "50px 0px" }}>Ship Name:
+                                            <span style={{ marginLeft: "20px" }}>{ship_name}</span>
                                         </h3>
 
 
@@ -86,7 +86,7 @@ class ShipDetails extends Component {
                                             </table>
                                         </div>
 
-                                        <Link to="/ship" className="btn btn-secondary" style={{
+                                        <Link to="/ship" className="btn btn-primary" style={{
                                             margin: "100px 0px", fontWeight: "bold"
                                         }}>Back</Link>
 
@@ -97,9 +97,9 @@ class ShipDetails extends Component {
 
                     </Query >
                 </Fragment >
+
+                <hr color="#2f2f2f" />
             </div>
-
-
         );
     }
 }

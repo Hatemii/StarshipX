@@ -30,7 +30,7 @@ class AllShips extends Component {
             <div className="container" style={{ textAlign: "center", margin: "0 auto" }}>
 
                 <Fragment>
-                    <h3 style={{ marginBottom: "50px" }}>All Ship Launches</h3>
+                    <h3 style={{ margin: "50px 0px" }}>All Ship Launches</h3>
                     <ActiveHandle />
 
                     <Query query={ShipsQuery}>
@@ -51,8 +51,8 @@ class AllShips extends Component {
 
                     </Query>
                 </Fragment>
-
             </div>
+
         );
     }
 }

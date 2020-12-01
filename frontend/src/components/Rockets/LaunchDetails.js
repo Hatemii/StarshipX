@@ -64,12 +64,8 @@ class LaunchDetails extends Component {
 
                                 return (
                                     <div>
-                                        <h3 style={{ margin: "40px 0px" }}>Mission Name:
-                                        <span
-                                                style={{
-                                                    marginLeft: "20px",
-                                                }} >{mission_name}
-                                            </span>
+                                        <h3 style={{ margin: "50px 0px" }}>Mission Name:
+                                            <span style={{ marginLeft: "20px", }} >{mission_name}</span>
                                         </h3>
 
 
@@ -128,9 +124,10 @@ class LaunchDetails extends Component {
                                             </div>
                                         </div>
 
-                                        <Link to="/rockets" className="btn btn-secondary" style={{
+                                        <Link to="/rockets" className="btn btn-primary" style={{
                                             margin: "100px 0px", fontWeight: "bold"
                                         }}>Back</Link>
+
 
                                     </div>
                                 );
@@ -141,6 +138,7 @@ class LaunchDetails extends Component {
 
                 </Fragment >
 
+                <hr color="#2f2f2f" />
             </div>
 
         );

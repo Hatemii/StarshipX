@@ -45,14 +45,21 @@ export default function ShipCards({
                             </tr>
                         </table>
 
+                        <div style={{
+                            position: "absolute",
+                            bottom: "30px",
+                            left: "0",
+                            right: "0",
+                            textAlign: "center",
+                        }}>
 
-                        <Link to={`/ship/${ship_id}`}>
-                            <button type="button " className="btn btn-primary"
-                                style={{
-                                    fontWeight: "bold",
-                                    marginTop: "10px"
-                                }}>Ship Details</button>
-                        </Link>
+                            <Link to={`/ship/${ship_id}`}>
+                                <button type="button " className="btn btn-primary"
+                                    style={{
+                                        fontWeight: "bold",
+                                    }}>Ship Details</button>
+                            </Link>
+                        </div>
 
                     </div>
                 </div>

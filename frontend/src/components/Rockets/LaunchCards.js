@@ -51,14 +51,19 @@ export default function LaunchCards({
                             </tr>
                         </table>
 
-
-                        <Link to={`/rockets/${flight_number}`}>
-                            <button type="button" className="btn btn-primary"
-                                style={{
-                                    fontWeight: "bold",
-                                    marginTop: "10px"
+                        <div style={{
+                            position: "absolute",
+                            bottom: "15px",
+                            left: "0",
+                            right: "0",
+                            textAlign: "center",
+                        }}>
+                            <Link to={`/rockets/${flight_number}`}>
+                                <button type="button" className="btn btn-primary" style={{
+                                    fontWeight: "bold"
                                 }}>Rocket Details</button>
-                        </Link>
+                            </Link>
+                        </div>
 
                     </div>
                 </div>

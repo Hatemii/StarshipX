@@ -27,7 +27,7 @@ export class AllLaunches extends Component {
             <div className="container" style={{ textAlign: "center", margin: "0 auto" }}>
 
                 <Fragment>
-                    <h3>All Rocket Launches</h3>
+                    <h3 style={{ margin: "50px 0px" }}>All Rocket Launches</h3>
 
                     <Mission />
 
