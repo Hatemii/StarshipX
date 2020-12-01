@@ -1,0 +1,13 @@
+.page-footer {
+    width: 100%;
+    height: 200px;
+    color: white;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+.page-footer li a:hover{
+    color: rgb(206, 0, 96);
+    border: none;
+}

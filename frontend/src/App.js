@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import "./App.css"
-import logo from "./images/logo.png"
 import ApolloClient from "apollo-boost"
 import { ApolloProvider } from "react-apollo"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
@@ -43,10 +42,12 @@ class App extends Component {
             </Switch>
           </Router>
 
+
         </ApolloProvider >
 
-
         <Footer />
+
+
       </div >
     );
   }
