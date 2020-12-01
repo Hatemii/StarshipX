@@ -42,101 +42,107 @@ class LaunchDetails extends Component {
         }
 
         return (
-            <Fragment>
-                <Query query={SpecificRocketQuery} variables={{ flight_number }}>
-                    {
-                        ({ loading, error, data }) => {
-                            if (loading) return <h4>Loading . . .</h4>
-                            if (error) return <h4>Error</h4>;
 
-                            const {
-                                mission_name,
-                                flight_number,
-                                launch_year,
-                                launch_success,
-                                rocket: { rocket_id, rocket_name, rocket_type },
-                            } = data.specific_launch
+            <div className="container" style={{ textAlign: "center", margin: "0 auto" }}>
 
+                <Fragment>
+                    <Query query={SpecificRocketQuery} variables={{ flight_number }}>
+                        {
+                            ({ loading, error, data }) => {
+                                if (loading) return <h4>Loading . . .</h4>
+                                if (error) return <h4>Error</h4>;
 
-
-                            return (
-                                <div>
-                                    <h3 style={{ margin: "40px 0px" }}>Mission Name:
-                                        <span
-                                            style={{
-                                                marginLeft: "20px",
-                                            }} >{mission_name}
-                                        </span>
-                                    </h3>
+                                const {
+                                    mission_name,
+                                    flight_number,
+                                    launch_year,
+                                    launch_success,
+                                    rocket: { rocket_id, rocket_name, rocket_type },
+                                } = data.specific_launch
 
 
+
+                                return (
                                     <div>
-                                        <div className="child_1" style={child_style}>
-                                            <h4>Launch Details</h4>
+                                        <h3 style={{ margin: "40px 0px" }}>Mission Name:
+                                        <span
+                                                style={{
+                                                    marginLeft: "20px",
+                                                }} >{mission_name}
+                                            </span>
+                                        </h3>
 
-                                            <table className="table table-borderless">
-                                                <tr>
-                                                    <td>Flight Number</td>
-                                                    <td className="td">{flight_number}</td>
-                                                </tr>
 
-                                                <tr>
-                                                    <td>Launch Year</td>
-                                                    <td className="td">{launch_year}</td>
-                                                </tr>
+                                        <div>
+                                            <div className="child_1" style={child_style}>
+                                                <h4>Launch Details</h4>
 
-                                                <tr>
-                                                    <td>Launch Success</td>
-                                                    <td className="td"> <span className={
-                                                        classNames({
-                                                            "text-success": launch_success,
-                                                            "text-danger": !launch_success
-                                                        })}>
-                                                        <b style={{ marginLeft: "5px" }}>{
-                                                            launch_success ? "Yes" : "No"
-                                                        }</b></span> </td>
-                                                </tr>
-                                            </table>
+                                                <table className="table table-borderless">
+                                                    <tr>
+                                                        <td>Flight Number</td>
+                                                        <td className="td">{flight_number}</td>
+                                                    </tr>
 
+                                                    <tr>
+                                                        <td>Launch Year</td>
+                                                        <td className="td">{launch_year}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>Launch Success</td>
+                                                        <td className="td"> <span className={
+                                                            classNames({
+                                                                "text-success": launch_success,
+                                                                "text-danger": !launch_success
+                                                            })}>
+                                                            <b style={{ marginLeft: "5px" }}>{
+                                                                launch_success ? "Yes" : "No"
+                                                            }</b></span> </td>
+                                                    </tr>
+                                                </table>
+
+                                            </div>
+
+
+
+                                            <div className="child_2" style={child_style2}>
+                                                <h4>Rocket Details</h4>
+
+                                                <table className="table table-borderless">
+                                                    <tr>
+                                                        <td>Rocket Id</td>
+                                                        <td className="td">{rocket_id}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>Rocket Name</td>
+                                                        <td className="td">{rocket_name}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>Rocket Type</td>
+                                                        <td className="td"> {rocket_type}</td>
+                                                    </tr>
+                                                </table>
+
+                                            </div>
                                         </div>
 
+                                        <Link to="/rockets" className="btn btn-secondary" style={{
+                                            margin: "100px 0px", fontWeight: "bold"
+                                        }}>Back</Link>
 
-
-                                        <div className="child_2" style={child_style2}>
-                                            <h4>Rocket Details</h4>
-
-                                            <table className="table table-borderless">
-                                                <tr>
-                                                    <td>Rocket Id</td>
-                                                    <td className="td">{rocket_id}</td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>Rocket Name</td>
-                                                    <td className="td">{rocket_name}</td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>Rocket Type</td>
-                                                    <td className="td"> {rocket_type}</td>
-                                                </tr>
-                                            </table>
-
-                                        </div>
                                     </div>
-
-                                    <Link to="/rockets" className="btn btn-secondary" style={{
-                                        margin: "100px 0px", fontWeight: "bold"
-                                    }}>Back</Link>
-
-                                </div>
-                            );
+                                );
+                            }
                         }
-                    }
 
-                </Query >
+                    </Query >
 
-            </Fragment >
+                </Fragment >
+
+            </div>
+
         );
     }
 }

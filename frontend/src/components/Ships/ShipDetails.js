@@ -23,78 +23,82 @@ class ShipDetails extends Component {
         let { ship_id } = this.props.match.params
 
         return (
-            <Fragment>
-                <Query query={SpecificShipQuery} variables={{ ship_id }}>
-                    {
-                        ({ loading, error, data }) => {
-                            if (loading) return <h4>Loading . . .</h4>
-                            if (error) return <h4>Error</h4>;
+            <div className="container" style={{ textAlign: "center", margin: "0 auto" }}>
 
-                            const {
-                                ship_id,
-                                ship_name,
-                                home_port,
-                                ship_type,
-                                year_built,
-                                active
-                            } = data.specific_ship
+                <Fragment>
+                    <Query query={SpecificShipQuery} variables={{ ship_id }}>
+                        {
+                            ({ loading, error, data }) => {
+                                if (loading) return <h4>Loading . . .</h4>
+                                if (error) return <h4>Error</h4>;
 
-                            let current_active = active.toString();
-                            let current_year = (year_built === null ? "Null" : year_built)
+                                const {
+                                    ship_id,
+                                    ship_name,
+                                    home_port,
+                                    ship_type,
+                                    year_built,
+                                    active
+                                } = data.specific_ship
 
-                            return (
-                                <div>
-                                    <h3 style={{ margin: "40px 0px" }}>Ship Name:
+                                let current_active = active.toString();
+                                let current_year = (year_built === null ? "Null" : year_built)
+
+                                return (
+                                    <div>
+                                        <h3 style={{ margin: "40px 0px" }}>Ship Name:
                                         <span style={{ marginLeft: "20px" }}>{ship_name}</span>
-                                    </h3>
+                                        </h3>
 
 
-                                    <div className="child_1">
-                                        <h4>Overview</h4>
+                                        <div className="child_1">
+                                            <h4>Overview</h4>
 
-                                        <table className="table table-borderless">
-                                            <tr>
-                                                <td>Ship Id</td>
-                                                <td className="td">{ship_id}</td>
-                                            </tr>
+                                            <table className="table table-borderless">
+                                                <tr>
+                                                    <td>Ship Id</td>
+                                                    <td className="td">{ship_id}</td>
+                                                </tr>
 
-                                            <tr>
-                                                <td>Home Port</td>
-                                                <td className="td">{home_port}</td>
-                                            </tr>
+                                                <tr>
+                                                    <td>Home Port</td>
+                                                    <td className="td">{home_port}</td>
+                                                </tr>
 
-                                            <tr>
-                                                <td>Ship Type</td>
-                                                <td className="td">{ship_type}</td>
-                                            </tr>
+                                                <tr>
+                                                    <td>Ship Type</td>
+                                                    <td className="td">{ship_type}</td>
+                                                </tr>
 
-                                            <tr>
-                                                <td>Year Of Built</td>
-                                                <td className="td">{current_year}</td>
-                                            </tr>
+                                                <tr>
+                                                    <td>Year Of Built</td>
+                                                    <td className="td">{current_year}</td>
+                                                </tr>
 
-                                            <tr>
-                                                <td>Active</td>
-                                                <td className="td"><span style={
-                                                    current_active === "true" ?
-                                                        { color: "rgb(0, 199, 79)", fontWeight: "bold" } : { color: "rgb(220, 10, 10)", fontWeight: "bold" }
-                                                } > {current_active}</span></td>
-                                            </tr>
+                                                <tr>
+                                                    <td>Active</td>
+                                                    <td className="td"><span style={
+                                                        current_active === "true" ?
+                                                            { color: "rgb(0, 199, 79)", fontWeight: "bold" } : { color: "rgb(220, 10, 10)", fontWeight: "bold" }
+                                                    } > {current_active}</span></td>
+                                                </tr>
 
-                                        </table>
+                                            </table>
+                                        </div>
+
+                                        <Link to="/ship" className="btn btn-secondary" style={{
+                                            margin: "100px 0px", fontWeight: "bold"
+                                        }}>Back</Link>
+
                                     </div>
-
-                                    <Link to="/ship" className="btn btn-secondary" style={{
-                                        margin: "100px 0px", fontWeight: "bold"
-                                    }}>Back</Link>
-
-                                </div>
-                            );
+                                );
+                            }
                         }
-                    }
 
-                </Query >
-            </Fragment >
+                    </Query >
+                </Fragment >
+            </div>
+
 
         );
     }

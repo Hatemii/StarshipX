@@ -23,29 +23,33 @@ const LaunchesQuery = gql`
 export class AllLaunches extends Component {
     render() {
         return (
-            <Fragment>
-                <h3>All Rocket Launches</h3>
 
-                <Mission />
+            <div className="container" style={{ textAlign: "center", margin: "0 auto" }}>
 
-                <Query query={LaunchesQuery}>
-                    {
-                        ({ loading, error, data }) => {
-                            if (loading) return <h4>Loading . . .</h4>
-                            if (error) return <h4>Error</h4>;
+                <Fragment>
+                    <h3>All Rocket Launches</h3>
 
-                            return (
-                                <Fragment>
-                                    {data.launches.map(launch => (
-                                        <LaunchCards key={launch.flight_number} launch={launch} />
-                                    ))}
-                                </Fragment>
-                            )
+                    <Mission />
+
+                    <Query query={LaunchesQuery}>
+                        {
+                            ({ loading, error, data }) => {
+                                if (loading) return <h4>Loading . . .</h4>
+                                if (error) return <h4>Error</h4>;
+
+                                return (
+                                    <Fragment>
+                                        {data.launches.map(launch => (
+                                            <LaunchCards key={launch.flight_number} launch={launch} />
+                                        ))}
+                                    </Fragment>
+                                )
+                            }
                         }
-                    }
 
-                </Query>
-            </Fragment>
+                    </Query>
+                </Fragment>
+            </div>
         )
     }
 }

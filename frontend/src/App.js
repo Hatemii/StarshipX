@@ -24,31 +24,26 @@ class App extends Component {
   render() {
     return (
       <div>
+
+        <header><Navbar /></header>
+
         <ApolloProvider client={client} >
 
           <Router>
-            <header> <Navbar /> </header>
+            <Switch>
 
+              <Route exact path="/" />
+              <Route path="/rockets" exact component={AllLaunches} />
+              <Route path="/rockets/:flight_number" component={LaunchDetails} />
+              <Route exact path="/ship" component={AllShips} />
+              <Route path="/ship/:ship_id" component={ShipDetails} />
 
-            <div className="container" style={{
-              textAlign: "center",
-              margin: "0 auto"
-            }}>
-
-
-              <Switch>
-                <Route exact path="/" />
-                <Route path="/rockets" exact component={AllLaunches} />
-                <Route path="/rockets/:flight_number" component={LaunchDetails} />
-                <Route exact path="/ship" component={AllShips} />
-                <Route path="/ship/:ship_id" component={ShipDetails} />
-              </Switch>
-
-            </div>
+            </Switch>
           </Router>
 
         </ApolloProvider >
-      </div>
+
+      </div >
     );
   }
 }
