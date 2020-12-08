@@ -123,6 +123,7 @@ const DragonDiameter = new GraphQLObjectType({
 })
 
 
+
 // ******************* ROOT QUERY *******************  //
 
 
@@ -206,7 +207,6 @@ const RootQuery = new GraphQLObjectType({
           .then(res => res.data);
       }
     },
-
 
 
 

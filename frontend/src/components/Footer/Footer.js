@@ -39,7 +39,7 @@ export default class Footer extends Component {
                         </ul>
                     </div>
 
-                    <div className="footer-copyright text-center py-3">© 2020 Copyright</div>
+                    <div style={{ color: "grey" }} className="footer-copyright text-center py-3">© 2020 Copyright</div>
 
                 </footer>
             </div >

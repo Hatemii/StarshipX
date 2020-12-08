@@ -4,6 +4,8 @@ import { Query } from "react-apollo"
 import { Link } from "react-router-dom"
 import classNames from "classnames"
 
+
+
 // specific_launch <<<--- user same query name as you used in schema.js
 const SpecificRocketQuery = gql`
     query SpecificRocketQuery($flight_number: Int!) {
@@ -18,6 +20,22 @@ const SpecificRocketQuery = gql`
                 rocket_name
                 rocket_type,
             }
+        }
+    }
+`
+
+const SpecificRocketType = gql`
+    query SpecificRocketType($rocket_id: String!) {
+        specific_rocket(rocket_id: $rocket_id) {
+            rocket_id
+            rocket_type
+            country
+            company,
+            height {
+                meters
+                feet
+            },
+            description
         }
     }
 `
@@ -44,7 +62,6 @@ class LaunchDetails extends Component {
         return (
 
             <div className="container" style={{ textAlign: "center", margin: "0 auto" }}>
-
                 <Fragment>
                     <Query query={SpecificRocketQuery} variables={{ flight_number }}>
                         {
