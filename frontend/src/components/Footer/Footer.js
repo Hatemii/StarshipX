@@ -12,25 +12,25 @@ export default class Footer extends Component {
                         <ul className="list-unstyled list-inline text-center">
 
                             <li className="list-inline-item">
-                                <a className="btn-floating btn-lg" href="https://www.facebook.com/spacenewsx" target="_blank">
+                                <a className="btn-floating btn-lg" href="https://www.facebook.com/spacenewsx" target="_blank" rel="noopener noreferrer">
                                     <i><FaFacebook size={20} /></i>
                                 </a>
                             </li>
 
                             <li className="list-inline-item">
-                                <a className="btn-floating btn-lg" href="https://twitter.com/SpaceX?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank">
+                                <a className="btn-floating btn-lg" href="https://twitter.com/SpaceX?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank" rel="noopener noreferrer">
                                     <i><FaTwitter size={20} /> </i>
                                 </a>
                             </li>
 
                             <li className="list-inline-item">
-                                <a className="btn-floating btn-lg" href="https://www.youtube.com/user/spacexchannel" target="_blank">
+                                <a className="btn-floating btn-lg" href="https://www.youtube.com/user/spacexchannel" target="_blank" rel="noopener noreferrer">
                                     <i><FaYoutube size={20} /></i>
                                 </a>
                             </li>
 
                             <li className="list-inline-item">
-                                <a className="btn-floating btn-lg" href="https://www.instagram.com/spacex/?hl=en" target="_blank">
+                                <a className="btn-floating btn-lg" href="https://www.instagram.com/spacex/?hl=en" target="_blank" rel="noopener noreferrer">
                                     <i><FaInstagram size={20} /></i>
                                 </a>
                             </li>

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./Navbar.css"
 import white from "../../images/white.png"
-import { BrowserRouter as Router, Link } from "react-router-dom"
 
 class Navbar extends Component {
     constructor(props) {
