@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import gql from "graphql-tag"
 import { Query } from "react-apollo"
 import LaunchCards from "./LaunchCards"
-import Mission from "./Missions"
+import Mission from "../HandleSuccesLaunches/Missions"
 
 const LaunchesQuery = gql`
     query LaunchesQuery {

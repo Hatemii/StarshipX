@@ -24,22 +24,6 @@ const SpecificRocketQuery = gql`
     }
 `
 
-const SpecificRocketType = gql`
-    query SpecificRocketType($rocket_id: String!) {
-        specific_rocket(rocket_id: $rocket_id) {
-            rocket_id
-            rocket_type
-            country
-            company,
-            height {
-                meters
-                feet
-            },
-            description
-        }
-    }
-`
-
 class LaunchDetails extends Component {
     render() {
         let { flight_number } = this.props.match.params;

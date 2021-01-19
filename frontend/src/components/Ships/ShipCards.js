@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-import Moment from "react-moment"
+import React from 'react'
 import { Link } from "react-router-dom"
 import "./ShipStyle.css"
 
@@ -53,11 +52,10 @@ export default function ShipCards({
                             textAlign: "center",
                         }}>
 
-                            <Link to={`/ship/${ship_id}`}>
-                                <button type="button " className="btn btn-primary"
-                                    style={{
-                                        fontWeight: "bold",
-                                    }}>Ship Details</button>
+                            <Link to={`/ship/${ship_id}`} className="btn btn-primary"
+                                style={{
+                                    fontWeight: "bold",
+                                }}>Ship Details
                             </Link>
                         </div>
 

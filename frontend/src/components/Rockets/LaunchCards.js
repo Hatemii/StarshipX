@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import classNames from "classnames"
 import Moment from "react-moment"
 import { Link } from "react-router-dom"
@@ -58,17 +58,17 @@ export default function LaunchCards({
                             right: "0",
                             textAlign: "center",
                         }}>
-                            <Link to={`/rockets/${flight_number}`}>
-                                <button type="button" className="btn btn-primary" style={{
+                            <Link to={`/rockets/${flight_number}`}
+                                className="btn btn-primary" style={{
                                     fontWeight: "bold"
-                                }}>Rocket Details</button>
+                                }}>Rocket Details
                             </Link>
                         </div>
 
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
 
     )
 }
