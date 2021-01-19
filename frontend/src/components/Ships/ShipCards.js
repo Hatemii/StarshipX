@@ -17,7 +17,7 @@ export default function ShipCards({
     return (
 
         <div className="row">
-            <div className="col">
+            <div className="col-md-4">
 
                 <div className="card">
                     <div className="card-body">
@@ -26,22 +26,24 @@ export default function ShipCards({
                         <hr color="white" />
 
                         <table className="table table-borderless">
-                            <tr>
-                                <td>Ship Id</td>
-                                <td className="td">{ship_id}</td>
-                            </tr>
+                            <tbody>
+                                <tr>
+                                    <td>Ship Id</td>
+                                    <td className="td">{ship_id}</td>
+                                </tr>
 
-                            <tr>
-                                <td>Ship Type</td>
-                                <td className="td" style={{ color: "white", fontWeight: "bold" }}>{ship_type}</td>
-                            </tr>
+                                <tr>
+                                    <td>Ship Type</td>
+                                    <td className="td" style={{ color: "white", fontWeight: "bold" }}>{ship_type}</td>
+                                </tr>
 
-                            <tr>
-                                <td>Active</td>
-                                <td className="td"><span style={
-                                    current_active === "true" ? { color: "rgb(0, 199, 79)", fontWeight: "bold" } : { color: "rgb(220, 10, 10)", fontWeight: "bold" }
-                                } > {current_active}</span> </td>
-                            </tr>
+                                <tr>
+                                    <td>Active</td>
+                                    <td className="td"><span style={
+                                        current_active === "true" ? { color: "rgb(0, 199, 79)", fontWeight: "bold" } : { color: "rgb(220, 10, 10)", fontWeight: "bold" }
+                                    } > {current_active}</span> </td>
+                                </tr>
+                            </tbody>
                         </table>
 
                         <div style={{

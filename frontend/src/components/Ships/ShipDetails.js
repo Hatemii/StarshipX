@@ -55,34 +55,35 @@ class ShipDetails extends Component {
                                             <h4>Overview</h4>
 
                                             <table className="table table-borderless">
-                                                <tr>
-                                                    <td>Ship Id</td>
-                                                    <td className="td">{ship_id}</td>
-                                                </tr>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Ship Id</td>
+                                                        <td className="td">{ship_id}</td>
+                                                    </tr>
 
-                                                <tr>
-                                                    <td>Home Port</td>
-                                                    <td className="td">{home_port}</td>
-                                                </tr>
+                                                    <tr>
+                                                        <td>Home Port</td>
+                                                        <td className="td">{home_port}</td>
+                                                    </tr>
 
-                                                <tr>
-                                                    <td>Ship Type</td>
-                                                    <td className="td">{ship_type}</td>
-                                                </tr>
+                                                    <tr>
+                                                        <td>Ship Type</td>
+                                                        <td className="td">{ship_type}</td>
+                                                    </tr>
 
-                                                <tr>
-                                                    <td>Year Of Built</td>
-                                                    <td className="td">{current_year}</td>
-                                                </tr>
+                                                    <tr>
+                                                        <td>Year Of Built</td>
+                                                        <td className="td">{current_year}</td>
+                                                    </tr>
 
-                                                <tr>
-                                                    <td>Active</td>
-                                                    <td className="td"><span style={
-                                                        current_active === "true" ?
-                                                            { color: "rgb(0, 199, 79)", fontWeight: "bold" } : { color: "rgb(220, 10, 10)", fontWeight: "bold" }
-                                                    } > {current_active}</span></td>
-                                                </tr>
-
+                                                    <tr>
+                                                        <td>Active</td>
+                                                        <td className="td"><span style={
+                                                            current_active === "true" ?
+                                                                { color: "rgb(0, 199, 79)", fontWeight: "bold" } : { color: "rgb(220, 10, 10)", fontWeight: "bold" }
+                                                        } > {current_active}</span></td>
+                                                    </tr>
+                                                </tbody>
                                             </table>
                                         </div>
 

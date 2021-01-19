@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import "./FooterStyle.css"
 import { FaFacebook, FaTwitter, FaYoutube, FaInstagram } from "react-icons/fa";
-import { SiSpacex } from "react-icons/si";
 
 export default class Footer extends Component {
     render() {
@@ -9,7 +8,7 @@ export default class Footer extends Component {
             <div>
 
                 <footer className="page-footer">
-                    <div classNameName="container">
+                    <div className="container">
                         <ul className="list-unstyled list-inline text-center">
 
                             <li className="list-inline-item">

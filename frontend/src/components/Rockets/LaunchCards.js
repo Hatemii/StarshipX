@@ -17,7 +17,7 @@ export default function LaunchCards({
     return (
 
         <div className="row">
-            <div className="col">
+            <div className="col-md-4">
 
                 <div className="card">
                     <div className="card-body">
@@ -27,28 +27,29 @@ export default function LaunchCards({
 
 
                         <table className="table table-borderless">
-
-                            <tr>
-                                <td>Flight Number</td>
-                                <td className="td_2">{flight_number}</td>
-                            </tr>
-
-
-                            <tr>
-                                <td>Mission</td>
-                                <td className="td_2"><span className={
-                                    classNames({
-                                        "text-success": launch_success,
-                                        "text-danger": !launch_success
-                                    })}>{mission_name}
-                                </span></td>
-                            </tr>
+                            <tbody>
+                                <tr>
+                                    <td>Flight Number</td>
+                                    <td className="td_2">{flight_number}</td>
+                                </tr>
 
 
-                            <tr>
-                                <td>Date</td>
-                                <td className="td_2"><Moment format="YYYY-MM-DD HH:mm">{launch_date_local}</Moment> </td>
-                            </tr>
+                                <tr>
+                                    <td>Mission</td>
+                                    <td className="td_2"><span className={
+                                        classNames({
+                                            "text-success": launch_success,
+                                            "text-danger": !launch_success
+                                        })}>{mission_name}
+                                    </span></td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>Date</td>
+                                    <td className="td_2"><Moment format="YYYY-MM-DD HH:mm">{launch_date_local}</Moment> </td>
+                                </tr>
+                            </tbody>
                         </table>
 
                         <div style={{

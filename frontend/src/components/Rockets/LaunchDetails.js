@@ -75,27 +75,29 @@ class LaunchDetails extends Component {
                                                 <h4>Launch Details</h4>
 
                                                 <table className="table table-borderless">
-                                                    <tr>
-                                                        <td>Flight Number</td>
-                                                        <td className="td">{flight_number}</td>
-                                                    </tr>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Flight Number</td>
+                                                            <td className="td">{flight_number}</td>
+                                                        </tr>
 
-                                                    <tr>
-                                                        <td>Launch Year</td>
-                                                        <td className="td">{launch_year}</td>
-                                                    </tr>
+                                                        <tr>
+                                                            <td>Launch Year</td>
+                                                            <td className="td">{launch_year}</td>
+                                                        </tr>
 
-                                                    <tr>
-                                                        <td>Launch Success</td>
-                                                        <td className="td"> <span className={
-                                                            classNames({
-                                                                "text-success": launch_success,
-                                                                "text-danger": !launch_success
-                                                            })}>
-                                                            <b style={{ marginLeft: "5px" }}>{
-                                                                launch_success ? "Yes" : "No"
-                                                            }</b></span> </td>
-                                                    </tr>
+                                                        <tr>
+                                                            <td>Launch Success</td>
+                                                            <td className="td"> <span className={
+                                                                classNames({
+                                                                    "text-success": launch_success,
+                                                                    "text-danger": !launch_success
+                                                                })}>
+                                                                <b style={{ marginLeft: "5px" }}>{
+                                                                    launch_success ? "Yes" : "No"
+                                                                }</b></span> </td>
+                                                        </tr>
+                                                    </tbody>
                                                 </table>
 
                                             </div>
@@ -106,20 +108,22 @@ class LaunchDetails extends Component {
                                                 <h4>Rocket Details</h4>
 
                                                 <table className="table table-borderless">
-                                                    <tr>
-                                                        <td>Rocket Id</td>
-                                                        <td className="td">{rocket_id}</td>
-                                                    </tr>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Rocket Id</td>
+                                                            <td className="td">{rocket_id}</td>
+                                                        </tr>
 
-                                                    <tr>
-                                                        <td>Rocket Name</td>
-                                                        <td className="td">{rocket_name}</td>
-                                                    </tr>
+                                                        <tr>
+                                                            <td>Rocket Name</td>
+                                                            <td className="td">{rocket_name}</td>
+                                                        </tr>
 
-                                                    <tr>
-                                                        <td>Rocket Type</td>
-                                                        <td className="td"> {rocket_type}</td>
-                                                    </tr>
+                                                        <tr>
+                                                            <td>Rocket Type</td>
+                                                            <td className="td"> {rocket_type}</td>
+                                                        </tr>
+                                                    </tbody>
                                                 </table>
 
                                             </div>
@@ -140,7 +144,7 @@ class LaunchDetails extends Component {
                 </Fragment >
 
                 <hr color="#2f2f2f" />
-            </div>
+            </div >
 
         );
     }

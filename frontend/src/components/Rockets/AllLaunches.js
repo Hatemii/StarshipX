@@ -41,8 +41,8 @@ export class AllLaunches extends Component {
 
                                     return (
                                         <Fragment>
-                                            {data.launches.map(launch => (
-                                                <LaunchCards key={launch.flight_number} launch={launch} />
+                                            {data.launches.map((launch, x) => (
+                                                <LaunchCards key={x} launch={launch} />
                                             ))}
                                         </Fragment>
                                     )
