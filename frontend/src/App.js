@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import "./App.css"
 import ApolloClient from "apollo-boost"
 import { ApolloProvider } from "react-apollo"
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import AllLaunches from "./components/Rockets/AllLaunches"
 import LaunchDetails from "./components/Rockets/LaunchDetails"
 import Navbar from "./components/Header/Navbar"
@@ -31,15 +31,15 @@ class App extends Component {
         <ApolloProvider client={client} >
 
           <Router>
-            <Switch>
+            <Routes>
 
-              <Route exact path="/" component={Home} />
-              <Route path="/rockets" exact component={AllLaunches} />
-              <Route path="/rockets/:flight_number" component={LaunchDetails} />
-              <Route exact path="/ship" component={AllShips} />
-              <Route path="/ship/:ship_id" component={ShipDetails} />
+              <Route exact path="/" element={<Home/>} />
+              <Route path="/rockets" exact element={<AllLaunches/>} />
+              <Route path="/rockets/:flight_number" element={<LaunchDetails/>} />
+              <Route exact path="/ship" element={<AllShips/>} />
+              <Route path="/ship/:ship_id" element={<ShipDetails/>} />
 
-            </Switch>
+            </Routes>
           </Router>
 
 
